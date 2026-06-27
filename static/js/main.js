@@ -18,7 +18,7 @@ function switchLang(lang) {
   // Update all elements with data-ta / data-en
   document.querySelectorAll('[data-ta][data-en]').forEach(el => {
     const text = el.getAttribute('data-' + lang);
-    if (text !== null) el.innerHTML = text;
+    if (text !== null && text !== "") el.innerHTML = text;
   });
 
   // Save preference
@@ -114,12 +114,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ---- SCROLL FADE-IN ANIMATIONS ----
 function initScrollAnimations() {
   const els = document.querySelectorAll(
-    '.about-card, .story-card, .bus-card, .date-card, .qr-card, .address-card, .contact-card, .blessings-card, .schedule-table-wrap, .guideline-card, .deity-banner-item'
+    '.story-card, .bus-card, .date-card, .qr-card, .address-card, .contact-card, .schedule-table-wrap, .guideline-card, .deity-banner-item'
   );
   els.forEach(el => el.classList.add('fade-in'));
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.add('visible');
@@ -161,7 +161,6 @@ function initParticles() {
     container.appendChild(p);
   }
 
-  // Add keyframes
   if (!document.getElementById('particle-style')) {
     const style = document.createElement('style');
     style.id = 'particle-style';
@@ -303,7 +302,6 @@ function initFireworks() {
     requestAnimationFrame(render);
   }
 
-  // Launch initial fireworks
   launchFirework();
   scheduleFirework();
   render();
@@ -329,14 +327,12 @@ function initActiveNav() {
   sections.forEach(s => observer.observe(s));
 }
 
-// Add active link style
 const navStyle = document.createElement('style');
 navStyle.textContent = '.nav-links a.active-link { color: var(--gold-light) !important; background: rgba(201,168,76,0.15) !important; }';
 document.head.appendChild(navStyle);
 
 // ---- INIT ON LOAD ----
 document.addEventListener('DOMContentLoaded', () => {
-  // Load saved language
   try {
     const saved = localStorage.getItem('siteLang');
     if (saved && (saved === 'ta' || saved === 'en')) {
@@ -351,11 +347,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initPhotoStack();
 
-  // Stagger animation for about cards
-  document.querySelectorAll('.about-card, .story-card').forEach((el, i) => {
+  document.querySelectorAll('.story-card').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.08) + 's';
   });
 });
+
+// ---- LIGHTBOX GALLERY ----
+function openLightbox(src) {
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  if (lightbox && img) {
+    img.src = src;
+    lightbox.classList.add('active');
+  }
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    lightbox.classList.remove('active');
+  }
+}
 
 // ---- PHOTO STACK CAROUSEL ----
 const GALLERY_IMAGES = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','14.jpg'];
@@ -378,20 +390,25 @@ function initPhotoStack() {
       const card = document.createElement('div');
       card.className = 'stack-card';
       card.dataset.depth = String(i);
+      
       const img = document.createElement('img');
       img.src = basePath + GALLERY_IMAGES[idx];
       img.alt = 'Temple photo ' + (idx + 1);
       img.loading = i === 0 ? 'eager' : 'lazy';
+      
       card.appendChild(img);
       card.style.zIndex = String(30 - i);
+      
       if (i === 0) {
         card.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
         card.style.opacity = '1';
       } else if (i === 1) {
-        card.style.transform = 'translate(16px, 12px) scale(0.93) rotate(4deg)';
+        // Shift right, so it peeks out on the right
+        card.style.transform = 'translate(45px, 12px) scale(0.9) rotate(4deg)';
         card.style.opacity = '0.9';
       } else {
-        card.style.transform = 'translate(30px, 22px) scale(0.86) rotate(8deg)';
+        // Shift left, so it peeks out on the left
+        card.style.transform = 'translate(-45px, 22px) scale(0.8) rotate(-4deg)';
         card.style.opacity = '0.75';
       }
       stack.appendChild(card);
@@ -427,16 +444,18 @@ function initPhotoStack() {
 
   function attachSwipe(card) {
     if (!card) return;
-    let startX = 0, dx = 0, dragging = false;
+    let startX = 0, dx = 0, dragging = false, moved = false;
 
     function onStart(x) {
       dragging = true;
       startX = x;
+      moved = false;
       card.style.transition = 'none';
     }
     function onMove(x) {
       if (!dragging) return;
       dx = x - startX;
+      if (Math.abs(dx) > 3) moved = true;
       card.style.transform = `translate(${dx}px, 0) rotate(${dx / 18}deg)`;
     }
     function onEnd() {
@@ -453,12 +472,25 @@ function initPhotoStack() {
       dx = 0;
     }
 
-    card.addEventListener('mousedown', (e) => onStart(e.clientX));
+    card.addEventListener('mousedown', (e) => { e.preventDefault(); onStart(e.clientX); });
     window.addEventListener('mousemove', (e) => onMove(e.clientX));
-    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('mouseup', (e) => {
+      onEnd();
+      if (!moved && (e.target === card || card.contains(e.target))) {
+        const img = card.querySelector('img');
+        if (img) openLightbox(img.src);
+      }
+    });
+    
     card.addEventListener('touchstart', (e) => onStart(e.touches[0].clientX), { passive: true });
     card.addEventListener('touchmove', (e) => onMove(e.touches[0].clientX), { passive: true });
-    card.addEventListener('touchend', onEnd);
+    card.addEventListener('touchend', (e) => {
+      onEnd();
+      if (!moved) {
+        const img = card.querySelector('img');
+        if (img) openLightbox(img.src);
+      }
+    });
   }
 
   nextBtn.addEventListener('click', goNext);
@@ -509,11 +541,8 @@ function initFireDroplets() {
     setTimeout(() => d.remove(), duration * 1000 + 200);
   }
 
-  // Steady stream of falling embers alongside the rising particles & crackers
   setInterval(spawnDroplet, 350);
   for (let i = 0; i < 6; i++) {
     setTimeout(spawnDroplet, i * 150);
   }
 }
-
-

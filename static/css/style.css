@@ -1019,9 +1019,11 @@ body {
 }
 .footer-links a:hover { color: var(--gold-light); }
 .footer-copy {
-  color: var(--text-muted);
-  font-size: 0.78rem;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 600;
   line-height: 1.8;
+  letter-spacing: 0.02em;
 }
 
 /* ---- BACK TO TOP ---- */

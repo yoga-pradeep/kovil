@@ -400,6 +400,10 @@ body {
   100% { background-position: 200px 0; }
 }
 
+.festival-badge-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
 .festival-badge {
   display: inline-flex;
   align-items: center;
@@ -408,7 +412,6 @@ body {
   border: 1px solid var(--gold);
   border-radius: 30px;
   padding: 8px 24px;
-  margin-bottom: 20px;
   box-shadow: 0 0 15px rgba(139,0,0,0.2);
 }
 .badge-text {
@@ -662,6 +665,7 @@ body {
   color: var(--text-muted);
   font-size: 0.88rem;
   line-height: 1.9;
+  text-align: justify;
 }
 
 /* ---- BUS ROUTES SECTION ---- */
@@ -721,21 +725,16 @@ body {
   flex-wrap: wrap;
   margin-bottom: 12px;
 }
+.bus-place {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
 .bus-stop {
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.82rem;
   font-weight: 600;
-}
-.bus-stop.start {
-  background: rgba(139,0,0,0.4);
-  border: 1px solid var(--crimson);
-  color: var(--text-light);
-}
-.bus-stop.via {
-  background: rgba(201,168,76,0.15);
-  border: 1px solid rgba(201,168,76,0.4);
-  color: var(--gold-light);
 }
 .bus-stop.end {
   background: rgba(0,100,0,0.3);
@@ -751,6 +750,11 @@ body {
   color: var(--text-muted);
   font-size: 0.8rem;
   font-style: italic;
+}
+.bus-divider {
+  border: none;
+  border-top: 1px dashed rgba(201,168,76,0.3);
+  margin: 16px 0;
 }
 
 /* ---- GALLERY SECTION ---- */

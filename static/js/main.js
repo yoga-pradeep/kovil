@@ -53,34 +53,27 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// ---- NAVBAR SCROLL ----
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-
-  // Back to top
-  const btn = document.getElementById('backToTop');
-  if (window.scrollY > 400) {
-    btn.classList.add('visible');
-  } else {
-    btn.classList.remove('visible');
-  }
-});
-
 // ---- MOBILE NAV TOGGLE ----
 function toggleNav() {
   const links = document.getElementById('nav-links');
-  links.classList.toggle('open');
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const isOpen = links.classList.toggle('open');
+  if (toggleBtn) {
+    toggleBtn.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+  }
+}
+
+function closeMobileNav() {
+  const links = document.getElementById('nav-links');
+  const toggleBtn = document.querySelector('.nav-toggle');
+  links.classList.remove('open');
+  if (toggleBtn) toggleBtn.innerHTML = '&#9776;';
 }
 
 // Close nav on link click (mobile)
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
-    document.getElementById('nav-links').classList.remove('open');
+    closeMobileNav();
   });
 });
 
@@ -89,7 +82,7 @@ document.addEventListener('click', (e) => {
   const links = document.getElementById('nav-links');
   const toggle = document.querySelector('.nav-toggle');
   if (links.classList.contains('open') && !links.contains(e.target) && !toggle.contains(e.target)) {
-    links.classList.remove('open');
+    closeMobileNav();
   }
 });
 
@@ -104,7 +97,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      const navH = 80;
+      const navH = 96;
       const top = target.getBoundingClientRect().top + window.pageYOffset - navH;
       window.scrollTo({ top, behavior: 'smooth' });
     }
@@ -350,6 +343,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.story-card').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.08) + 's';
   });
+
+  // Back to top button visibility on scroll
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
 });
 
 // ---- LIGHTBOX GALLERY ----
@@ -390,15 +393,15 @@ function initPhotoStack() {
       const card = document.createElement('div');
       card.className = 'stack-card';
       card.dataset.depth = String(i);
-      
+
       const img = document.createElement('img');
       img.src = basePath + GALLERY_IMAGES[idx];
       img.alt = 'Temple photo ' + (idx + 1);
       img.loading = i === 0 ? 'eager' : 'lazy';
-      
+
       card.appendChild(img);
       card.style.zIndex = String(30 - i);
-      
+
       if (i === 0) {
         card.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
         card.style.opacity = '1';
@@ -481,7 +484,7 @@ function initPhotoStack() {
         if (img) openLightbox(img.src);
       }
     });
-    
+
     card.addEventListener('touchstart', (e) => onStart(e.touches[0].clientX), { passive: true });
     card.addEventListener('touchmove', (e) => onMove(e.touches[0].clientX), { passive: true });
     card.addEventListener('touchend', (e) => {

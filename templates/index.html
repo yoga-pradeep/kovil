@@ -11,17 +11,37 @@
 </head>
 <body>
   <canvas id="fireworks-canvas"></canvas>
-
   <div class="particles" id="particles"></div>
 
-  <div class="lang-bar">
-    <div class="lang-bar-inner">
-      <span class="lang-bar-text"></span>
-      <div class="lang-switcher">
-        <button class="lang-btn active" id="btn-ta" onclick="switchLang('ta')">தமிழ்</button>
-        <span class="lang-divider">|</span>
-        <button class="lang-btn" id="btn-en" onclick="switchLang('en')">English</button>
+  <div class="top-bar" id="top-bar">
+    <div class="top-bar-inner">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" data-ta="முகப்பு" data-en="Home">முகப்பு</a></li>
+        <li><a href="#thiruvizha" data-ta="திருவிழா" data-en="Festival">திருவிழா</a></li>
+        <li><a href="#stories" data-ta="வரலாற்றுக் கதைகள்" data-en="Historic Stories">வரலாற்றுக் கதைகள்</a></li>
+        <li><a href="#bus-routes" data-ta="பேருந்து வழி" data-en="Bus Routes">பேருந்து வழி</a></li>
+        <li><a href="#gallery" data-ta="படங்கள்" data-en="Gallery">படங்கள்</a></li>
+        <li><a href="#location" data-ta="இருப்பிடம்" data-en="Location">இருப்பிடம்</a></li>
+        <li><a href="#guidelines" data-ta="வழிகாட்டுதல்கள்" data-en="Guidelines">வழிகாட்டுதல்கள்</a></li>
+        <li><a href="#contact" data-ta="தொடர்பு" data-en="Contact">தொடர்பு</a></li>
+      </ul>
+      <div class="top-bar-right">
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-ta" onclick="switchLang('ta')">தமிழ்</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" id="btn-en" onclick="switchLang('en')">English</button>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
       </div>
+    </div>
+  </div>
+
+  <div class="ticker-bar">
+    <div class="ticker-inner">
+      <span>Note: This website is dynamic and changes from time to time. ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; குறிப்பு: இந்த இணையதளம் மாறும் தன்மையுடையது, தகவல்கள் அவ்வப்போது புதுப்பிக்கப்படும். ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">Note: This website is dynamic and changes from time to time. ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; குறிப்பு: இந்த இணையதளம் மாறும் தன்மையுடையது, தகவல்கள் அவ்வப்போது புதுப்பிக்கப்படும். ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">Note: This website is dynamic and changes from time to time. ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; குறிப்பு: இந்த இணையதளம் மாறும் தன்மையுடையது, தகவல்கள் அவ்வப்போது புதுப்பிக்கப்படும். ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span aria-hidden="true">Note: This website is dynamic and changes from time to time. ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; குறிப்பு: இந்த இணையதளம் மாறும் தன்மையுடையது, தகவல்கள் அவ்வப்போது புதுப்பிக்கப்படும். ✦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
 
@@ -51,11 +71,10 @@
     </div>
     <div class="hero-content">
       <div class="kolam-top">✦ ✧ ✦ ✧ ✦</div>
-      <p class="hero-sub">தெய்வகுலத்தாரின் குல தெய்வம்</p>
       <h1 class="hero-title" data-ta="அருள்மிகு<br>புங்கமரத்தையன்<br>திருக்கோவில்" data-en="Arulmigu<br>Pungamarathu Ayyan<br>Thirukovil">அருள்மிகு<br>புங்கமரத்தையன்<br>திருக்கோவில்</h1>
       <p class="hero-subtitle" data-ta="அருள்மிகு ஸ்ரீ புங்கமரத்து ஐய்யன், கொளத்துப்பாளையம், வெள்ளாங்கோவில் - சிறுவலூர் ரோடு, கோபிச்செட்டிப்பாளையம் வட்டம், ஈரோடு மாவட்டம், தமிழ்நாடு - 638476" data-en="Arulmigu Sri Pungamarathu Ayyan, Kolathuppalayam, Vellankovil - Siruvalur Rd, Gobichettipalayam Taluk, Erode district, Tamil Nadu - 638476">அருள்மிகு ஸ்ரீ புங்கமரத்து ஐய்யன், கொளத்துப்பாளையம், வெள்ளாங்கோவில் - சிறுவலூர் ரோடு, கோபிச்செட்டிப்பாளையம் வட்டம், ஈரோடு மாவட்டம், தமிழ்நாடு - 638476</p>
       <div class="hero-quote-box">
-        <p class="hero-quote" data-ta="“ஸ்ரீ கருப்பராயன் சுவாமி”" data-en="“Sri Karupparayan Swamy”">“ஸ்ரீ கருப்பராயன் சுவாமி”</p>
+        <p class="hero-quote" data-ta="&quot;ஸ்ரீ கருப்பராயன் சுவாமி&quot;" data-en="&quot;Sri Karupparayan Swamy&quot;">"ஸ்ரீ கருப்பராயன் சுவாமி"</p>
       </div>
       <div class="kolam-bottom">✦ ✧ ✦ ✧ ✦</div>
       <div class="hero-cta-group">
@@ -67,21 +86,6 @@
       <span>↓</span>
     </div>
   </header>
-
-  <nav class="navbar" id="navbar">
-    
-    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home" data-ta="முகப்பு" data-en="Home">முகப்பு</a></li>
-      <li><a href="#thiruvizha" data-ta="திருவிழா" data-en="Festival">திருவிழா</a></li>
-      <li><a href="#stories" data-ta="வரலாற்றுக் கதைகள்" data-en="Historic Stories">வரலாற்றுக் கதைகள்</a></li>
-      <li><a href="#bus-routes" data-ta="பேருந்து வழி" data-en="Bus Routes">பேருந்து வழி</a></li>
-      <li><a href="#gallery" data-ta="படங்கள்" data-en="Gallery">படங்கள்</a></li>
-      <li><a href="#location" data-ta="இருப்பிடம்" data-en="Location">இருப்பிடம்</a></li>
-      <li><a href="#guidelines" data-ta="வழிகாட்டுதல்கள்" data-en="Guidelines">வழிகாட்டுதல்கள்</a></li>
-      <li><a href="#contact" data-ta="தொடர்பு" data-en="Contact">தொடர்பு</a></li>
-    </ul>
-  </nav>
 
   <section class="countdown-section" id="thiruvizha">
     <div class="fire-border-top"></div>
@@ -138,12 +142,7 @@
       </div>
       <div class="schedule-table-wrap">
         <table class="schedule-table">
-          <thead>
-            <tr>
-              <th data-ta="நேரம்" data-en="Time">நேரம்</th>
-              <th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th>
-            </tr>
-          </thead>
+          <thead><tr><th data-ta="நேரம்" data-en="Time">நேரம்</th><th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th></tr></thead>
           <tbody>
             <tr><td data-ta="இரவு 6.00 மணிக்கு மேல்" data-en="From 6:00 PM">இரவு 6.00 மணிக்கு மேல்</td><td class="event-name" data-ta="பூச்சாட்டுதல்" data-en="Poo Saattudhal (Flower Adornment Ritual)">பூச்சாட்டுதல்</td></tr>
           </tbody>
@@ -155,12 +154,7 @@
       </div>
       <div class="schedule-table-wrap">
         <table class="schedule-table">
-          <thead>
-            <tr>
-              <th data-ta="நேரம்" data-en="Time">நேரம்</th>
-              <th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th>
-            </tr>
-          </thead>
+          <thead><tr><th data-ta="நேரம்" data-en="Time">நேரம்</th><th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th></tr></thead>
           <tbody>
             <tr><td data-ta="இரவு 9.00 மணிக்கு மேல்" data-en="From 9:00 PM">இரவு 9.00 மணிக்கு மேல்</td><td class="event-name" data-ta="தீர்த்தம் எடுத்தல்" data-en="Theertham Eduthal (Holy Water Procession)">தீர்த்தம் எடுத்தல்</td></tr>
             <tr><td data-ta="இரவு 9.30 மணிக்கு மேல்" data-en="From 9:30 PM">இரவு 9.30 மணிக்கு மேல்</td><td class="event-name" data-ta="படைக்கலம், கரகம் ஜோடித்தல்" data-en="Padaikkalam & Karagam Decoration">படைக்கலம், கரகம் ஜோடித்தல்</td></tr>
@@ -174,12 +168,7 @@
       </div>
       <div class="schedule-table-wrap">
         <table class="schedule-table">
-          <thead>
-            <tr>
-              <th data-ta="நேரம்" data-en="Time">நேரம்</th>
-              <th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th>
-            </tr>
-          </thead>
+          <thead><tr><th data-ta="நேரம்" data-en="Time">நேரம்</th><th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th></tr></thead>
           <tbody>
             <tr><td data-ta="நள்ளிரவு 1.00 மணிக்கு மேல்" data-en="From 1:00 AM (Midnight)">நள்ளிரவு 1.00 மணிக்கு மேல்</td><td class="event-name" data-ta="அம்மை அழைத்தல், அம்மன் பொங்கல் வைத்தல்" data-en="Ammai Azhaithal & Amman Pongal Vaithal">அம்மை அழைத்தல், அம்மன் பொங்கல் வைத்தல்</td></tr>
             <tr><td data-ta="அதிகாலை 5.00 மணிக்கு மேல்" data-en="From 5:00 AM">அதிகாலை 5.00 மணிக்கு மேல்</td><td class="event-name" data-ta="பெரும் பூஜை, கரகம் சுற்றி வருதல், பால் பூஜை நடைபெறுதல்" data-en="Perum Pooja, Karagam Procession & Milk Pooja">பெரும் பூஜை, கரகம் சுற்றி வருதல், பால் பூஜை நடைபெறுதல்</td></tr>
@@ -192,7 +181,7 @@
           </tbody>
         </table>
       </div>
-      
+
       <div class="annadhanam-box">
         <p data-ta="புதன் காலை 9.00 மணிக்கு மேல் அன்னதானம் நடைபெறும்" data-en="Annadhanam (Free Meal) will be served on Wednesday from 9:00 AM">புதன் காலை 9.00 மணிக்கு மேல் அன்னதானம் நடைபெறும்</p>
       </div>
@@ -202,18 +191,12 @@
       </div>
       <div class="schedule-table-wrap">
         <table class="schedule-table">
-          <thead>
-            <tr>
-              <th data-ta="நேரம்" data-en="Time">நேரம்</th>
-              <th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th>
-            </tr>
-          </thead>
+          <thead><tr><th data-ta="நேரம்" data-en="Time">நேரம்</th><th data-ta="நிகழ்ச்சி" data-en="Event">நிகழ்ச்சி</th></tr></thead>
           <tbody>
             <tr><td data-ta="காலை 11.00 மணிக்கு மேல்" data-en="From 11:00 AM">காலை 11.00 மணிக்கு மேல்</td><td class="event-name" data-ta="மறு பூஜை" data-en="Maru Pooja (Concluding Worship)">மறு பூஜை</td></tr>
           </tbody>
         </table>
       </div>
-
     </div>
   </section>
 
@@ -225,31 +208,26 @@
         <p class="section-sub" data-ta="கோவில் மற்றும் கொங்கு நாட்டின் வீர வரலாற்றுக் கதைகள்" data-en="Historic stories about the temple and Kongu Nadu">கோவில் மற்றும் கொங்கு நாட்டின் வீர வரலாற்றுக் கதைகள்</p>
       </div>
       <div class="stories-grid">
-
         <article class="story-card">
           <div class="story-num">01</div>
           <h3 class="story-title" data-ta="கருப்பராயன் — காவல் தெய்வம்" data-en="Karupparayan — The Guardian Deity">கருப்பராயன் — காவல் தெய்வம்</h3>
           <p class="story-text" data-ta="கொங்கு நாட்டில் வாழ்ந்த ஒரு மாவீரன், ஏழைகளையும் ஊரையும் காக்க தன் வாழ்நாளை அர்ப்பணித்தார். அவருடைய நீதியான ஆட்சியும் கருணையும் அனைவரையும் கவர்ந்தது. கால ஓட்டத்தில் அவர் 'கருப்பன்' — தமிழ் மக்களின் காவல் தெய்வமாக போற்றப்படுகிறார். புங்கமரத்தின் நிழலில் அமர்ந்து நீதி வழங்கிய இவர், 'புங்கமரத்தையன்' என்று அழைக்கப்படலானார்." data-en="A great warrior of Kongu Nadu dedicated his life to protecting the poor and the village. His just rule and compassion won the hearts of all. Over time, he came to be revered as 'Karuppan' — the guardian deity of Tamil people. Known to dispense justice seated beneath the Pungai tree, he became 'Pungamarathu Ayyan'.">கொங்கு நாட்டில் வாழ்ந்த ஒரு மாவீரன், ஏழைகளையும் ஊரையும் காக்க தன் வாழ்நாளை அர்ப்பணித்தார். அவருடைய நீதியான ஆட்சியும் கருணையும் அனைவரையும் கவர்ந்தது. கால ஓட்டத்தில் அவர் 'கருப்பன்' — தமிழ் மக்களின் காவல் தெய்வமாக போற்றப்படுகிறார். புங்கமரத்தின் நிழலில் அமர்ந்து நீதி வழங்கிய இவர், 'புங்கமரத்தையன்' என்று அழைக்கப்படலானார்.</p>
         </article>
-
         <article class="story-card">
           <div class="story-num">02</div>
           <h3 class="story-title" data-ta="பொன்னர் — சங்கர் வீரக் கதை" data-en="Ponnar — Shankar: The Twin Heroes">பொன்னர் — சங்கர் வீரக் கதை</h3>
           <p class="story-text" data-ta="கொங்கு வெள்ளாள குடும்பத்தில் பிறந்த வீரர்கள் பொன்னரும் சங்கரும் இரட்டை புதல்வர்கள். தாமரை மற்றும் நெல்லியன் கோடனின் மகன்கள். இவர்கள் பொன்னி வளநாட்டை நீதியுடன் ஆண்டனர். வேட்டுவர்களின் தீய சூழ்ச்சிகளை எதிர்த்து போரிட்ட இவர்கள் தங்கள் மக்களுக்காக வாழ்நாளை மடித்தனர். இன்று 'அண்ணமார் சுவாமிகள்' என்று வழிபடப்படுகிறார்கள்." data-en="Born to the Kongu Vellala family of Nellian Kodan and Thamari, the twin warriors Ponnar and Shankar ruled Ponni Valanadu with justice. They resisted the treacherous plots of the Vettuvar community and laid down their lives for their people. Today they are worshipped as 'Annamar Swamigal' across Kongu Nadu.">கொங்கு வெள்ளாள குடும்பத்தில் பிறந்த வீரர்கள் பொன்னரும் சங்கரும் இரட்டை புதல்வர்கள். தாமரை மற்றும் நெல்லியன் கோடனின் மகன்கள். இவர்கள் பொன்னி வளநாட்டை நீதியுடன் ஆண்டனர். வேட்டுவர்களின் தீய சூழ்ச்சிகளை எதிர்த்து போரிட்ட இவர்கள் தங்கள் மக்களுக்காக வாழ்நாளை மடித்தனர். இன்று 'அண்ணமார் சுவாமிகள்' என்று வழிபடப்படுகிறார்கள்.</p>
         </article>
-
         <article class="story-card">
           <div class="story-num">03</div>
           <h3 class="story-title" data-ta="நல்ல தங்கம் — தலைவரின் தங்கை" data-en="Nalla Thangal — The Brave Sister">நல்ல தங்கம் — தலைவரின் தங்கை</h3>
           <p class="story-text" data-ta="பொன்னர் சங்கரின் இளைய சகோதரி 'அர்க்கணை நல்ல தங்கம்'. தனது அண்ணன்மார் இல்லாத வேளையில் ஊரை காக்க தைரியமாக நின்ற பெண் வீரர். கொங்கு நாட்டின் பெண்மையின் சின்னமாக போற்றப்படும் இவர், குல தெய்வங்களின் வரிசையில் இடம் பெற்று நம்மால் வணங்கப்படுகிறார்." data-en="'Arkanai Nalla Thangam' was the brave younger sister of Ponnar and Shankar. She stood courageous to protect the village in her brothers' absence — a symbol of Kongu Nadu's womanhood. She is revered as part of the divine family and worshipped alongside the clan deities.">பொன்னர் சங்கரின் இளைய சகோதரி 'அர்க்கணை நல்ல தங்கம்'. தனது அண்ணன்மார் இல்லாத வேளையில் ஊரை காக்க தைரியமாக நின்ற பெண் வீரர். கொங்கு நாட்டின் பெண்மையின் சின்னமாக போற்றப்படும் இவர், குல தெய்வங்களின் வரிசையில் இடம் பெற்று நம்மால் வணங்கப்படுகிறார்.</p>
         </article>
-
         <article class="story-card">
           <div class="story-num">04</div>
           <h3 class="story-title" data-ta="சின்ன அண்ணன் — பெரிய அண்ணன்" data-en="Chinna Annan & Periya Annan">சின்ன அண்ணன் — பெரிய அண்ணன்</h3>
           <p class="story-text" data-ta="கொங்கு நாட்டில் 'சின்ன அண்ணன்' மற்றும் 'பெரிய அண்ணன்' என்று அழைக்கப்படும் தெய்வங்கள் ஊரின் பாதுகாப்பை ஏற்று வாழ்ந்தவர்கள். இவர்கள் பாரம்பரிய காவல் தெய்வங்களாக, குறிப்பாக கொங்கு வேளாளர் குடும்பங்களால் தலைமுறைகளாக வணங்கப்படுகிறார்கள். இந்த புங்கமரத்தையன் கோவிலும் அதே பாரம்பரியத்தை சுமந்து நிற்கிறது." data-en="The deities known as 'Chinna Annan' (younger brother) and 'Periya Annan' (elder brother) in Kongu Nadu lived as protectors of the village. They are worshipped as traditional guardian deities, especially by Kongu Vellalar families across generations. The Pungamarathu Ayyan temple carries forward this same sacred tradition.">கொங்கு நாட்டில் 'சின்ன அண்ணன்' மற்றும் 'பெரிய அண்ணன்' என்று அழைக்கப்படும் தெய்வங்கள் ஊரின் பாதுகாப்பை ஏற்று வாழ்ந்தவர்கள். இவர்கள் பாரம்பரிய காவல் தெய்வங்களாக, குறிப்பாக கொங்கு வேளாளர் குடும்பங்களால் தலைமுறைகளாக வணங்கப்படுகிறார்கள். இந்த புங்கமரத்தையன் கோவிலும் அதே பாரம்பரியத்தை சுமந்து நிற்கிறது.</p>
         </article>
-
       </div>
     </div>
   </section>
@@ -262,13 +240,11 @@
         <p class="section-sub" data-ta="கோவிலை அடைய TNSTC பேருந்து வழிகள்" data-en="TNSTC bus routes to reach the temple">கோவிலை அடைய TNSTC பேருந்து வழிகள்</p>
       </div>
       <div class="bus-grid">
-        
         <div class="bus-card">
           <div class="bus-route-header">
             <span class="bus-badge">TNSTC</span>
             <span class="bus-num" data-ta="முக்கிய வழித்தடங்கள்" data-en="Main Routes">முக்கிய வழித்தடங்கள்</span>
           </div>
-          
           <div class="bus-route-path">
             <span class="bus-place" data-ta="கவுந்தப்பாடி" data-en="Kavindapadi">கவுந்தப்பாடி</span>
             <span class="bus-arrow">→</span>
@@ -279,9 +255,7 @@
             <span class="bus-stop end" data-ta="வெள்ளாங்கோவில்" data-en="Vellankovil">வெள்ளாங்கோவில்</span>
           </div>
           <p class="bus-note" data-ta="மாற்றுப் பேருந்துகள்: 10, 10A, 10B, 10C, அல்லது 10F" data-en="Alternative routes - 10, 10A, 10B, 10C, or 10F">மாற்றுப் பேருந்துகள்: 10, 10A, 10B, 10C, அல்லது 10F</p>
-          
           <hr class="bus-divider" />
-          
           <div class="bus-route-path">
             <span class="bus-place" data-ta="கோபி" data-en="Gobi">கோபி</span>
             <span class="bus-arrow">→</span>
@@ -292,7 +266,6 @@
             <span class="bus-stop end" data-ta="கொளத்துப்பாளையம்" data-en="Kolathuppalayam">கொளத்துப்பாளையம்</span>
           </div>
         </div>
-
         <div class="bus-card highlight-card">
           <div class="bus-route-header">
             <span class="bus-badge gold">TNSTC</span>
@@ -303,7 +276,6 @@
           </div>
           <p class="bus-note" data-ta="பேருந்திலிருந்து இறங்கிய பிறகு ஆட்டோ அல்லது கால் நடையாக கோவிலை அடையலாம்" data-en="After alighting, reach the temple by auto or on foot">பேருந்திலிருந்து இறங்கிய பிறகு ஆட்டோ அல்லது கால் நடையாக கோவிலை அடையலாம்</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -315,7 +287,6 @@
         <h2 class="section-title" data-ta="புகைப்படங்கள்" data-en="Photo Gallery">புகைப்படங்கள்</h2>
         <p class="section-sub" data-ta="கோவில் மற்றும் திருவிழா நினைவுகள்" data-en="Temple and festival memories">கோவில் மற்றும் திருவிழா நினைவுகள்</p>
       </div>
-
       <div class="photo-stack-wrap">
         <button class="stack-nav stack-nav-left" id="stackPrev" aria-label="Previous">❮</button>
         <div class="photo-stack" id="photoStack"></div>
@@ -332,46 +303,29 @@
         <h2 class="section-title" data-ta="கோவில் இருப்பிடம்" data-en="Temple Location">கோவில் இருப்பிடம்</h2>
         <p class="section-sub" data-ta="அருள்மிகு புங்கமரத்தையன் திருக்கோவில், ஈரோடு மாவட்டம்" data-en="Arulmigu Pungamarathu Ayyan Thirukovil, Erode District">அருள்மிகு புங்கமரத்தையன் திருக்கோவில், ஈரோடு மாவட்டம்</p>
       </div>
-      
       <div class="location-top-row">
         <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4593.663981625621!2d77.48869828387537!3d11.390473159914757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba915470098caff%3A0x4fc65926f0158243!2sArulmigu%20Pungamarathaiyan%20thirukovil!5e1!3m2!1sen!2sin!4v1780677159140!5m2!1sen!2sin"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Temple Location Map">
-          </iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4593.663981625621!2d77.48869828387537!3d11.390473159914757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba915470098caff%3A0x4fc65926f0158243!2sArulmigu%20Pungamarathaiyan%20thirukovil!5e1!3m2!1sen!2sin!4v1780677159140!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Temple Location Map"></iframe>
           <a class="map-open-btn" href="https://maps.app.goo.gl/FThuAFmXavNB9BrM7" target="_blank" rel="noopener">
             <span data-ta="Google Maps-ல் திற" data-en="Open in Google Maps">Google Maps-ல் திற</span>
           </a>
         </div>
-        
         <div class="qr-wrap">
           <div class="qr-card">
             <h3 data-ta="QR குறியீடு" data-en="Scan for Directions">QR குறியீடு</h3>
             <p data-ta="உங்கள் மொபைலில் ஸ்கேன் செய்து வழி அறியுங்கள்" data-en="Scan with your phone to get directions">உங்கள் மொபைலில் ஸ்கேன் செய்து வழி அறியுங்கள்</p>
             <div class="qr-img-wrap">
-              <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://maps.app.goo.gl/FThuAFmXavNB9BrM7&color=8B0000&bgcolor=FFF8E7"
-                alt="QR code for temple location"
-                class="qr-img"
-                loading="lazy"
-              />
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://maps.app.goo.gl/FThuAFmXavNB9BrM7&color=8B0000&bgcolor=FFF8E7" alt="QR code for temple location" class="qr-img" loading="lazy" />
             </div>
             <a class="qr-link-btn" href="https://maps.app.goo.gl/FThuAFmXavNB9BrM7" target="_blank" rel="noopener" data-ta="வழி பெறுக →" data-en="Get Directions →">வழி பெறுக →</a>
           </div>
         </div>
       </div>
-      
       <div class="address-full-width address-card">
         <h3 data-ta="முகவரி" data-en="Address">முகவரி</h3>
         <p class="address-text" data-ta="அருள்மிகு ஸ்ரீ புங்கமரத்து ஐய்யன்<br>கொளத்துப்பாளையம், வெள்ளாங்கோவில் - சிறுவலூர் ரோடு<br>கோபிச்செட்டிப்பாளையம் வட்டம், ஈரோடு மாவட்டம், தமிழ்நாடு - 638476" data-en="Arulmigu Sri Pungamarathu Ayyan<br>Kolathuppalayam, Vellankovil - Siruvalur Rd<br>Gobichettipalayam Taluk, Erode district, Tamil Nadu - 638476">அருள்மிகு ஸ்ரீ புங்கமரத்து ஐய்யன்<br>கொளத்துப்பாளையம், வெள்ளாங்கோவில் - சிறுவலூர் ரோடு<br>கோபிச்செட்டிப்பாளையம் வட்டம், ஈரோடு மாவட்டம், தமிழ்நாடு - 638476</p>
-        <div class="coord-badge">
-          <span>11.3905°N, 77.4909°E</span>
-        </div>
+        <div class="coord-badge"><span>11.3905°N, 77.4909°E</span></div>
       </div>
-
     </div>
   </section>
 
@@ -408,23 +362,17 @@
       </div>
       <div class="guidelines-grid">
         <div class="guideline-card">
-          <div class="guideline-icon">
-            <svg viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9m0 5h2v9H9V8m4 0h2v9h-2V8Z"/></svg>
-          </div>
+          <div class="guideline-icon"><svg viewBox="0 0 24 24"><path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9m0 5h2v9H9V8m4 0h2v9h-2V8Z"/></svg></div>
           <h3 data-ta="குப்பையை குப்பைத் தொட்டியில் போடுங்கள்" data-en="Dispose Waste in Dustbins">குப்பையை குப்பைத் தொட்டியில் போடுங்கள்</h3>
           <p data-ta="கோவில் வளாகத்தை தூய்மையாக வைத்திருக்க, குப்பைகளை கீழே போடாமல் வைக்கப்பட்டுள்ள குப்பைத் தொட்டிகளில் மட்டும் போடவும்." data-en="Please help keep the temple premises clean — use the dustbins provided instead of littering on the ground.">கோவில் வளாகத்தை தூய்மையாக வைத்திருக்க, குப்பைகளை கீழே போடாமல் வைக்கப்பட்டுள்ள குப்பைத் தொட்டிகளில் மட்டும் போடவும்.</p>
         </div>
         <div class="guideline-card">
-          <div class="guideline-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2M10 16.5V14H13.5A2.5 2.5 0 0 0 16 11.5A2.5 2.5 0 0 0 13.5 9H10V7.5H13.5A4 4 0 0 1 17.5 11.5A4 4 0 0 1 13.5 15.5H11.5V16.5H10Z"/></svg>
-          </div>
+          <div class="guideline-icon"><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2M10 16.5V14H13.5A2.5 2.5 0 0 0 16 11.5A2.5 2.5 0 0 0 13.5 9H10V7.5H13.5A4 4 0 0 1 17.5 11.5A4 4 0 0 1 13.5 15.5H11.5V16.5H10Z"/></svg></div>
           <h3 data-ta="வாகனங்களை வெளியே நிறுத்துங்கள்" data-en="Park Outside the Premises">வாகனங்களை வெளியே நிறுத்துங்கள்</h3>
           <p data-ta="அனைவரின் வசதிக்காக, வாகனங்களை கோவில் வளாகத்திற்கு வெளியே குறிக்கப்பட்ட இடங்களில் மட்டும் நிறுத்தவும்." data-en="For everyone's convenience, please park your vehicles only in the designated areas outside the temple premises.">அனைவரின் வசதிக்காக, வாகனங்களை கோவில் வளாகத்திற்கு வெளியே குறிக்கப்பட்ட இடங்களில் மட்டும் நிறுத்தவும்.</p>
         </div>
         <div class="guideline-card">
-          <div class="guideline-icon">
-            <svg viewBox="0 0 24 24"><path d="M2.28,3L1.5,3.78L4.72,7H2.5V8.5H6.22L7.72,10H2.5V11.5H9.22L11,13.28V14.5H2.5V16H13.72L20.22,22.5L21,21.72L2.28,3M19,16V14.5H18.78L19.5,15.22V15.5H21V17H21.28L19,14.72V16M11,10V8.5H15.22L13.72,10H11M11.5,7V5.5H16.22L14.72,7H11.5M16.5,4V2.5H17.5V4H16.5Z"/></svg>
-          </div>
+          <div class="guideline-icon"><svg viewBox="0 0 24 24"><path d="M2.28,3L1.5,3.78L4.72,7H2.5V8.5H6.22L7.72,10H2.5V11.5H9.22L11,13.28V14.5H2.5V16H13.72L20.22,22.5L21,21.72L2.28,3M19,16V14.5H18.78L19.5,15.22V15.5H21V17H21.28L19,14.72V16M11,10V8.5H15.22L13.72,10H11M11.5,7V5.5H16.22L14.72,7H11.5M16.5,4V2.5H17.5V4H16.5Z"/></svg></div>
           <h3 data-ta="புகைபிடிக்க தடை" data-en="No Smoking">புகைபிடிக்க தடை</h3>
           <p data-ta="கோவில் வளாகம் முழுவதும் புகைபிடிப்பது கண்டிப்பாக தடைசெய்யப்பட்டுள்ளது. தெய்வீக தூய்மையை மதித்து ஒத்துழைக்கவும்." data-en="Smoking is strictly prohibited anywhere within the temple premises. Please respect the sanctity of the space.">கோவில் வளாகம் முழுவதும் புகைபிடிப்பது கண்டிப்பாக தடைசெய்யப்பட்டுள்ளது. தெய்வீக தூய்மையை மதித்து ஒத்துழைக்கவும்.</p>
         </div>
@@ -447,16 +395,16 @@
         <a href="#contact" data-ta="தொடர்பு" data-en="Contact">தொடர்பு</a>
       </div>
       <div class="footer-copy">
-        <p>© 2026. <span data-ta="அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை." data-en="All rights reserved.">அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span> <br> <span data-ta="உருவாக்கம்: யோக பிரதீப் சீனிவாசன், ஓசூர்." data-en="Developed by Yoga Pradeep Srinivasan, Hosur.">உருவாக்கம்: யோகா பிரதீப் சீனிவாசன், ஓசூர்.</span></p>
+        <p>© 2026. <span data-ta="அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை." data-en="All rights reserved.">அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span><br><span data-ta="உருவாக்கம்: யோகா பிரதீப் சீனிவாசன், ஓசூர்." data-en="Developed by Yoga Pradeep Srinivasan, Hosur.">உருவாக்கம்: யோகா பிரதீப் சீனிவாசன், ஓசூர்.</span></p>
       </div>
     </div>
     <div class="footer-kolam">✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦</div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">🔝</button>
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
   <div class="lightbox" id="lightbox">
-    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-close" onclick="closeLightbox()">✕</span>
     <img src="" id="lightbox-img" class="lightbox-img" alt="Gallery View">
   </div>
 
